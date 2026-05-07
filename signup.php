@@ -3,9 +3,9 @@
     <head>
         <title>Add users</title>
         <script type="text/javascript">
-
+            // This code checks if the radio button has been checked or not. check if the admin radio button has been checked
             function adminCheck() {
-                if (document.getElementById("role").checked) {
+                if (document.getElementById("adminbutton").checked) {
                     document.getElementById("adminpassword").style.visibility = "visible";
                 } else {
                     document.getElementById("adminpassword").style.visibility = "hidden";
@@ -21,36 +21,14 @@
             email: <input type="text" name="email"><br>
             contact: <input type="text" name="contact"><br>
             Password: <input type ="password" name="password"><br>
-            <?php /*
-
-                
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $selectedOption = $_POST["admin"]?? null;
-                    $password = $_POST['password']?? "";
-                    if (empty($password)){
-                        $error = "Password is required.";
-                    }
-                    elseif ($password != $correctPassword) {
-                        $error = "Password is incorrect.";
-                    }
-                }*/
-            ?>
-            
             Role:
             <input type ="radio" onclick="javascript:adminCheck();" name="role" value="pupil" >User
-            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="admin" >Admin<br>
+            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="admin" id="adminbutton">Admin<br>
             
             <div id="adminpassword" style="visibility:hidden">
-                admin Password: <input id = "adminpassword" type ="password" name="adminpassword" style="visibility:hidden"><br>
+                admin Password: <input id = "adminpassword" type ="password" name="adminpassword"><br>
             </div>
-            <?php
-                $correctPassword = "192834543";
-                    if($_POST["role"]=="admin"){
-                        
-                    }else{
-                        echo("hi");
-                    }
-            ?>
+            <input type="submit" value="submit" >
         </form>
         <?php
             include_once("connection.php");
@@ -58,7 +36,7 @@
             $stmt1->execute();
             while($row = $stmt1->fetch(PDO::FETCH_ASSOC))
             {
-                echo($row["Forename"]." "."<br>".$row["Surname"]."<br>");
+                echo($row["firstname"]." "."<br>".$row["lastname"]."<br>");
             }
             ?>
     </body>
