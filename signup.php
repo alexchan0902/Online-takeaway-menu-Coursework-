@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +18,7 @@
     <head>
 
     <body>
+        
         <form action="addusers.php" method="post">
             firstname: <input type ="text" name="firstname"><br>
             lastname: <input type ="text" name="lastname"><br>
@@ -22,22 +26,19 @@
             contact: <input type="text" name="contact"><br>
             Password: <input type ="password" name="password"><br>
             Role:
-            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="pupil" >User
-            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="admin" id="adminbutton">Admin<br>
+            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="user" >User
+            <input type ="radio" onclick="javascript:adminCheck();" name="role" value="admin" id="adminbutton">Admin
             
             <div id="adminpassword" style="visibility:hidden">
-                admin Password: <input id = "adminpassword" type ="password" name="adminpassword"><br>
+                Admin Password: <input id = "adminpassword" type ="password" name="adminpassword">
             </div>
-            <input type="submit" value="submit" >
-        </form>
-        <?php
-            include_once("connection.php");
-            $stmt1= $conn->prepare("SELECT * FROM tblusers");
-            $stmt1->execute();
-            while($row = $stmt1->fetch(PDO::FETCH_ASSOC))
-            {
-                echo($row["firstname"]." "."<br>".$row["lastname"]."<br>");
+            <?php
+            if ($_SESSION["error"] != ""){
+            echo $_SESSION["error"]; 
             }
             ?>
+            <input type="submit" value="submit" >
+        </form>
+        <a href="login.php">Already have an account? Click here to login </a>
     </body>
 </html>

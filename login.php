@@ -10,6 +10,6 @@
             Password:<input type="password" name="password"><br>
             <input type="submit" value="submit">
         </form>
-            
+        <a href="signup.php">Havent got a account? Click here to signup </a> 
     </body>
 </html>

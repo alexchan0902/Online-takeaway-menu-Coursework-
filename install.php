@@ -1,9 +1,10 @@
 <?php
-    #create variables with server detailson
+    #create variables with server details
     $servername="localhost";
     $username="root";
-    $password="password";
+    $password="root";
 
+    // create database takeaway if it has not been created.
     $conn=new PDO("mysql:host=$servername",$username,$password);
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $sql="CREATE DATABASE IF NOT EXISTS Takeaway";
@@ -12,6 +13,7 @@
     $conn->exec($sql);
     echo("DB made");
 
+    // create the table users and state the 
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblusers;
     CREATE TABLE tblusers
     (UserID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -37,7 +39,7 @@
     $stmt1->bindParam(":Password",$hashedpassword);
     $stmt1->execute();
 
-
+    // create a table for the menu
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblmenu;
     CREATE TABLE tblmenu
     (FoodID INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -48,7 +50,8 @@
     echo("<br>Table menu made.");
     $stmt1->execute();
 
-    $stmt1=$conn->prepare("INSERT INTO tblmenu
+    // add default data
+    $stmt1=$conn->prepare("INSERT INTO tblfood
     (FoodID,Name,AllergenID,Price)
     VALUES
     (NULL,'Bruised pork','3','10.99'),
@@ -56,6 +59,7 @@
     ");
     $stmt1->execute();
 
+    // create the table for order
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblorder;
     CREATE TABLE tblorder
     (orderID INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -66,6 +70,7 @@
     echo("<br>Table order made.");
     $stmt1->execute();
 
+    // add default data
     $stmt1=$conn->prepare("INSERT INTO tblorder
     (orderID,userID,total,Payment)
     VALUES
@@ -74,6 +79,7 @@
     ");
     $stmt1->execute();
 
+    // create table for basket
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblbasket;
     CREATE TABLE tblbasket
     (orderID INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -84,6 +90,7 @@
     echo("<br>Table basket made.");
     $stmt1->execute();
 
+    // add default data
     $stmt1=$conn->prepare("INSERT INTO tblbasket
     (orderID,FoodID,requests,Quantity)
     VALUES
@@ -92,6 +99,7 @@
     ");
     $stmt1->execute();    
 
+    // create table for allergen
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblallergen;
     CREATE TABLE tblallergen
     (AllergenID INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -100,6 +108,7 @@
     echo("<br>Table allergen made.");
     $stmt1->execute();
 
+    // add default data 
     $stmt1=$conn->prepare("INSERT INTO tblallergen
     (AllergenID,Allergy)
     VALUES
@@ -108,6 +117,7 @@
     ");
     $stmt1->execute();
 
+    // create table for food that has allergen
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblFood_has_allergen;
     CREATE TABLE tblFood_has_allergen
     (AllergenID INT(2) NOT NULL PRIMARY KEY,
@@ -116,6 +126,7 @@
     echo("<br>Table food_has_allergen made.");
     $stmt1->execute();
 
+    // add default data
     $stmt1=$conn->prepare("INSERT INTO tblFood_has_allergen
     (AllergenID,FoodID)
     VALUES
