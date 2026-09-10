@@ -1,4 +1,5 @@
 <?php
+//everest auto tls server 10gbps
     //header("location: index.php")
     session_start();#start session if you want to use session variables
     print_r($_POST);
@@ -24,7 +25,9 @@
             }
         }
         else{
-            echo("Invalid password");
+            $_SESSION["Password/User/Incorrect"] = true;
+            header('location: login.php');
         }
     }
 ?>
+

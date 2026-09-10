@@ -1,25 +1,15 @@
 <?php
-$stmt1= $conn->prepare("SELECT * FROM tblusers");
-    $stmt1->execute();
+    session_start();
+    include_once("connection.php");
+    #starts the session and connects the code to the database.
 
-    // This code uses a while loop to take the values out of the database to use later
-    /* while($row = $stmt1->fetch(PDO::FETCH_ASSOC))
-    {
-         Use if statements to check if the user has entered a same email or contact which is already 
-         in database
-        if ($_POST["contact"]==$row["Contact"]){
-            $foundContact=True;
-        }
-        if($_POST["email"]==$row["Email"]){
-            $foundEmail=True;
-        }
-    }  */
-    $hashedpassword=password_hash($_POST["password"],PASSWORD_DEFAULT);
-    $stmt1= $conn->prepare("INSERT INTO tblusers
+    $stmt1= $conn->prepare("INSERT INTO tblmenu
     (FoodID,Name,AllergenID,Price)
     VALUES
     (NULL,:Name,:AllergenID,:Price)
     ");
+    # SQL statement to insert into the table menu
+
     $stmt1->bindParam(":Name",$_POST["foodname"]);
     $stmt1->bindParam(":AllergenID",$_POST["allergenID"]);
     $stmt1->bindParam(":Price",$_POST["price"]);
