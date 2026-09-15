@@ -16,8 +16,17 @@
             Foodname: <input type ="text" name="foodname"><br>
             AllergenID: <input type="text" name="allergenID"><br>
             price: <input type="text" name="price"><br>
-            <input type="submit" value="submit">
+            <input type="submit" value="submit"><br>
+            <?php
+            if (isset($_SESSION['foodAdded'])){
+                echo("Food successfully added");
+                unset($_SESSION['foodAdded']);
+                }
+            elseif (isset($_SESSION['error'])){
+                echo($_SESSION['error']);
+                unset($_SESSION['error']);
+            }
+            ?>
         </form>
     </body>
 </html>
-

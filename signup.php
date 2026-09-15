@@ -35,6 +35,7 @@
             <?php
             if ($_SESSION["error"] != ""){
             echo $_SESSION["error"]; 
+            unset($_SESSION['error']);
             }
             ?>
             <input type="submit" value="submit" >

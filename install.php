@@ -51,11 +51,11 @@
     $stmt1->execute();
 
     // add default data
-    $stmt1=$conn->prepare("INSERT INTO tblfood
+    $stmt1=$conn->prepare("INSERT INTO tblmenu
     (FoodID,Name,AllergenID,Price)
     VALUES
-    (NULL,'Bruised pork','3','10.99'),
-    (NULL,'yang zhou fried rice','56','7.99')
+    (NULL,'Bruised pork','0','10.99'),
+    (NULL,'yang zhou fried rice','0','7.99')
     ");
     $stmt1->execute();
 
