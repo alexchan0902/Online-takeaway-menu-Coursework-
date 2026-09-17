@@ -9,7 +9,7 @@
     while($row = $stmt1->fetch(PDO::FETCH_ASSOC))
     {
         /* Use if statements to check if the user has entered the same food as one in the database */
-        if ($_POST["foodname"]==$row["Name"]){
+        if (strtoupper($_POST["foodname"])==strtoupper($row["Name"])){
             $foundFood=True;
         }
     }

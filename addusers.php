@@ -71,7 +71,7 @@
         if ($_POST["contact"]==$row["Contact"]){
             $foundContact=True;
         }
-        if($_POST["email"]==$row["Email"]){
+        if(strtoupper($_POST["email"])==strtoupper($row["Email"])){
             $foundEmail=True;
         }
     }
