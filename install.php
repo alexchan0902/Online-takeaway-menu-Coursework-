@@ -44,21 +44,23 @@
     CREATE TABLE tblmenu
     (FoodID INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(30) NOT NULL,
+    foodType VARCHAR(30) NOT NULL,
     AllergenID INT(2) NOT NULL,
     Price Decimal(4,2) NOT NULL);
     ");
-    echo("<br>Table menu made.");
+
     $stmt1->execute();
 
     // add default data
     $stmt1=$conn->prepare("INSERT INTO tblmenu
-    (FoodID,Name,AllergenID,Price)
+    (FoodID,Name,foodType,AllergenID,Price)
     VALUES
-    (NULL,'Bruised pork','0','10.99'),
-    (NULL,'yang zhou fried rice','0','7.99')
+    (NULL,'Bruised pork','food','0','10.99'),
+    (NULL,'yang zhou fried rice','food','0','7.99'),
+    (NULL,'jasmine tea','drink','0','2.50')
     ");
     $stmt1->execute();
-
+    echo("<br>Table menu made.");
     // create the table for order
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblorder;
     CREATE TABLE tblorder
