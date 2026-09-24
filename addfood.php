@@ -15,6 +15,11 @@
         <form action="addfooddatabase.php" method="post">
             Foodname: <input type ="text" name="foodname"><br>
             AllergenID: <input type="text" name="allergenID"><br>
+            Food type: <select name="foodType">
+                        <option value="food">Food</option>
+                        <option value="drink">Drink</option>
+                        <option value="dessert">Dessert</option>
+                        </select><br>
             price: <input type="text" name="price"><br>
             <input type="submit" value="submit"><br>
             <?php

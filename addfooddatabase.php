@@ -20,13 +20,14 @@
     }
     elseif ($foundFood != True){
         $stmt1= $conn->prepare("INSERT INTO tblmenu
-        (FoodID,Name,AllergenID,Price)
+        (FoodID,Name,foodType,AllergenID,Price)
         VALUES
-        (NULL,:Name,:AllergenID,:Price)
+        (NULL,:Name,:foodType,:AllergenID,:Price)
         ");
         # SQL statement to insert into the table menu
 
         $stmt1->bindParam(":Name",$_POST["foodname"]);
+        $stmt1->bindParam("foodType",$_POST["foodType"]);
         $stmt1->bindParam(":AllergenID",$_POST["allergenID"]);
         $stmt1->bindParam(":Price",$_POST["price"]);
         $stmt1->execute();
