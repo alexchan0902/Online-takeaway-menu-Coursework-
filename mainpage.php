@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <title>My PHP Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <button class="dropbtn">User
+      <i class="fa fa-caret-down"></i>
+  </button>
+
+  
+</div>
+
+
+</div>
+</body>
+</html>
+
+<!-- 
+<head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>  
@@ -16,9 +39,4 @@
 </div>
 
 
-<div id="Drinks">
-
-</div>
-</body>
-</html>
-
+<div id="Drinks"></div> -->
