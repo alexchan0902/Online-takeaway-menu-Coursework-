@@ -44,6 +44,7 @@
     CREATE TABLE tblmenu
     (FoodID INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(30) NOT NULL,
+    foodCategory VARCHAR(30) NOT NULL,
     foodType VARCHAR(30) NOT NULL,
     AllergenID INT(2) NOT NULL,
     Price Decimal(4,2) NOT NULL);
@@ -53,11 +54,16 @@
 
     // add default data
     $stmt1=$conn->prepare("INSERT INTO tblmenu
-    (FoodID,Name,foodType,AllergenID,Price)
+    (FoodID,Name,foodCategory,foodType,AllergenID,Price)
     VALUES
-    (NULL,'Bruised pork','food','0','10.99'),
-    (NULL,'yang zhou fried rice','food','0','7.99'),
-    (NULL,'jasmine tea','drink','0','2.50')
+    (NULL,'Bruised pork','food','pork','0','10.99'),
+    (NULL,'Honey Lemon Chicken','food','chicken','0','8.50'),
+    (NULL,'yang zhou fried rice','food','rice','0','7.99'),
+    (NULL,'jasmine tea','drink','hot drink','0','2.50'),
+    (NULL,'coke','drink','soft drink','0','2.50'),
+    (NULL,'lemonade','drink','cold drink','0','2.50'),
+    (NULL,'egg tart','dessert','pastry','0','3.50'),
+    (NULL,'mango pudding','dessert','pudding','0','5.50')
     ");
     $stmt1->execute();
     echo("<br>Table menu made.");
