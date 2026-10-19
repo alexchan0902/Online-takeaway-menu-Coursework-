@@ -33,15 +33,38 @@
     <form action="addtobasket.php" method="post">
       <select name="Order" id="Order">Dish:
       <?php
-      session_start();
-      include_once("connection.php");
       $stmt1= $conn->prepare("SELECT * FROM tblmenu WHERE foodType = 'pork'");
       $stmt1->execute();
       while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
         echo('<option value='.$row["Name"].'>'.$row["Name"].'</option>');
       }
-
       ?>
       </select>
     </form>
+    
+    <h2 class="Chicken_dishes">Chicken dishes </h2>
+    <img src="Photos\Honeylemonchicken.webp">
+    <br>
+    <form action="addtobasket.php" method="post">
+      <select name="Order" id="Order">Dish:
+      <?php
+      $stmt1= $conn->prepare("SELECT * FROM tblmenu WHERE foodType = 'chicken'");
+      $stmt1->execute();
+      while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
+        echo('<option value='.$row["Name"].'>'.$row["Name"].'</option>');
+      }
+      ?>
+
+    <h2 class="Dessert">Dessert</h2>
+    <img src="Photos\Eggtart.webp">
+    <br>
+    <form action="addtobasket.php" method="post">
+      <select name="Order" id="Order">Dish:
+      <?php
+      $stmt1= $conn->prepare("SELECT * FROM tblmenu WHERE foodType = 'dessert'");
+      $stmt1->execute();
+      while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
+        echo('<option value='.$row["Name"].'>'.$row["Name"].'</option>');
+      }
+      ?>
 </html>
