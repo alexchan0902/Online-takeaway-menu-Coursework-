@@ -25,10 +25,8 @@
                     }
                 }     
         }
-    if(!$_SESSION["logged_in"]){
-        $_SESSION["Password/User/Incorrect"] = true;
-        header('location: login.php');
-    }
+    $_SESSION["Password/User/Incorrect"] = true;
+    header('location: login.php');
 
 ?>
 
