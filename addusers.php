@@ -113,7 +113,7 @@
         //echo"role done";
         $stmt1->execute();
     }
-
+    header('location: login.php');
 
 ?>
 

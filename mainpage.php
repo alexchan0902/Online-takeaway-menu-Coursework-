@@ -26,7 +26,8 @@
 
       ?>
     </select>
-
+    <input type="submit" value="add to basket">
+    </form>
     <h2 class ="Pork_Dishes">Pork dishes</h2>
     <img src="Photos\Bruised_Pork.webp">
     <br>
@@ -38,7 +39,7 @@
       while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
         echo('<option value='.$row["Name"].'>'.$row["Name"].'</option>');
       }
-      ?>
+    ?>
       </select>
     </form>
     
@@ -53,7 +54,7 @@
       while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
         echo('<option value='.$row["Name"].'>'.$row["Name"].'</option>');
       }
-      ?>
+    ?>
 
     <h2 class="Dessert">Dessert</h2>
     <img src="Photos\Eggtart.webp">
