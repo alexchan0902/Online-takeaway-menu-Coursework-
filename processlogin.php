@@ -12,7 +12,7 @@
                 echo($attempt);
                 echo("<br>");
                 echo($hashed);
-                if ($attempt = $hashed){
+                if ($attempt == $hashed){
                     echo("valid password");
                     $_SESSION["firstname"]=$row["Forename"];
                     $_SESSION["loggedinuser"]=$row["UserID"];
