@@ -91,21 +91,23 @@
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblbasket;
     CREATE TABLE tblbasket
     (orderID INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    UserID INT(4) NOT NULL,
     FoodID INT(4) NOT NULL,
     requests Varchar(40) NOT NULL,
     Quantity INT(2) NOT NULL);
     ");
-    echo("<br>Table basket made.");
     $stmt1->execute();
+
 
     // add default data
     $stmt1=$conn->prepare("INSERT INTO tblbasket
-    (orderID,FoodID,requests,Quantity)
+    (orderID,FoodID,requests,Quantity,UserID)
     VALUES
-    ('1','1','No garlic','1'),
-    ('2','2','No veggies','3')
+    (NULL,'1','No garlic','1','1'),
+    (NULL,'2','No veggies','3','1')
     ");
     $stmt1->execute();    
+    echo("<br>Table basket made.");
 
     // create table for allergen
     $stmt1=$conn->prepare("DROP TABLE IF EXISTS tblallergen;
