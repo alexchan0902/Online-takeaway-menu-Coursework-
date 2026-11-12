@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once("navbar.php");
     if ($_SESSION["role"]!= "1"){
         header('location: mainpage.php');
     }
