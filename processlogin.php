@@ -8,11 +8,7 @@
     $stmt1->execute();
     while($row = $stmt1->fetch(PDO::FETCH_ASSOC)){
                 $hashed=$row["Password"];
-                $attempt=password_hash($_POST["password"],PASSWORD_DEFAULT);
-                echo($attempt);
-                echo("<br>");
-                echo($hashed);
-                if ($attempt == $hashed){
+                if (password_verify($_POST["password"],$hashed)){
                     echo("valid password");
                     $_SESSION["firstname"]=$row["Forename"];
                     $_SESSION["loggedinuser"]=$row["UserID"];
@@ -26,9 +22,9 @@
                     }
                 }     
         }
-    if (!$_SESSION["logged_in_status"]){
-    $_SESSION["Password/User/Incorrect"] = true;
-    header('location: login.php');
-    }
+    // if (!$_SESSION["logged_in_status"]){
+    // $_SESSION["Password/User/Incorrect"] = true;
+    // header('location: login.php');
+    // }
 
 ?>
