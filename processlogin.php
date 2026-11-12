@@ -22,9 +22,9 @@
                     }
                 }     
         }
-    // if (!$_SESSION["logged_in_status"]){
-    // $_SESSION["Password/User/Incorrect"] = true;
-    // header('location: login.php');
-    // }
+    if (!$_SESSION["logged_in_status"]){
+    $_SESSION["Password/User/Incorrect"] = true;
+    header('location: login.php');
+    }
 
 ?>
